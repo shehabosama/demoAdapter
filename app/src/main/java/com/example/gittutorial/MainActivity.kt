@@ -9,5 +9,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         println("this is contained in my second commit")
+
+        today is a good day
     }
 }
