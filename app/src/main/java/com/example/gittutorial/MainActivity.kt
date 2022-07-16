@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
 
         println("this is contained in my second commit")
         println("local change")
-        println("CHANGE second2")
+        println("CHANGE second1")
         println("these changes will marge from experimantl to main branch")
     }
 }
