@@ -70,7 +70,7 @@ class ItemAdapter(
 
                 txtLabel.text = grocery.name
                 txtTitle.text = grocery.ctegory
-            txtLabel.setOnClickListener {
+            itemView.setOnClickListener {
                     onGroceryClicked(grocery)
                 }
 

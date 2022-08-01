@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">gitTutorial</string>
+    <string name="channel_id">alarm_manager_id</string>
 </resources>

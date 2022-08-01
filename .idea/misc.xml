@@ -3,9 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/android_projects/gitTutorial/app/src/main/res/drawable-v24/bg_dialog.xml" value="0.124" />
+        <entry key="..\:/android_projects/gitTutorial/app/src/main/res/drawable-v24/bg_rounded_stroke_primary.xml" value="0.124" />
+        <entry key="..\:/android_projects/gitTutorial/app/src/main/res/drawable-v24/ic_status_success.xml" value="0.124" />
+        <entry key="..\:/android_projects/gitTutorial/app/src/main/res/layout/activity_alarm_manager_sample.xml" value="0.264" />
         <entry key="..\:/android_projects/gitTutorial/app/src/main/res/layout/activity_main.xml" value="0.25025641025641027" />
+        <entry key="..\:/android_projects/gitTutorial/app/src/main/res/layout/dialog_success.xml" value="0.4" />
         <entry key="..\:/android_projects/gitTutorial/app/src/main/res/layout/item_designers_brand.xml" value="0.25052083333333336" />
         <entry key="..\:/android_projects/gitTutorial/app/src/main/res/layout/item_designers_letter.xml" value="0.25052083333333336" />
+        <entry key="..\:/android_projects/gitTutorial/app/src/main/res/layout/notificatoin.xml" value="0.11302083333333333" />
       </map>
     </option>
   </component>
