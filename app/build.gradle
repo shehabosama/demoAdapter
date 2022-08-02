@@ -42,9 +42,14 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    //FCM
     implementation 'com.google.firebase:firebase-messaging-ktx:23.0.6'
     implementation 'com.google.firebase:firebase-analytics-ktx:21.1.0'
-    implementation 'androidx.work:work-runtime-ktx:2.5.0'
 
-
+    // lifecycleScope
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0"
+    implementation "androidx.activity:activity-ktx:1.6.0-alpha05"
+    // picasso
+    implementation 'com.squareup.picasso:picasso:2.8'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 }
