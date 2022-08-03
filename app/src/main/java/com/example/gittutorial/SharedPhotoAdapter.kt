@@ -44,7 +44,7 @@ class SharedPhotoAdapter(
              Picasso.get()
                 .load(photo.contentUri)
                 .placeholder(R.drawable.ic_launcher_background)
-                .resize(100, 100)
+                .fit()
                 .centerCrop()
                 .into(ivPhoto);
 
