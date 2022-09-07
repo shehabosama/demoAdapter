@@ -2,11 +2,13 @@ package com.example.gittutorial
 
 import android.app.*
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
-import android.os.Build.VERSION_CODES.O
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.example.gittutorial.databinding.ActivityAlarmManagerSampleBinding
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
@@ -18,10 +20,16 @@ class AlarmManagerSample : AppCompatActivity() {
     private lateinit var calendar: Calendar
     private lateinit var alarmManager:AlarmManager
     private lateinit var pendingIntent:PendingIntent
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAlarmManagerSampleBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        if (!Settings.canDrawOverlays(this)) {
+            val intent =
+                Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
+            startActivityForResult(intent, 0)
+        }
         createNotificationChannel()
         binding.btnSelectTime.setOnClickListener {
             showTimePicker()

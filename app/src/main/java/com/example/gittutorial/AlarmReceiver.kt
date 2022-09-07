@@ -4,10 +4,13 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import java.lang.Package.getPackage
+import androidx.core.content.ContextCompat.startActivity
+import java.util.*
+
 
 class AlarmReceiver:BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
@@ -18,6 +21,14 @@ class AlarmReceiver:BroadcastReceiver() {
 
 
         val contentIntent = Intent(context, MainActivity::class.java)
+        val resultIntent = Intent(context, MainActivity::class.java)
+        resultIntent.data = Uri.parse(
+            "content://"
+                    + Calendar.getInstance().getTimeInMillis()
+        )
+        resultIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP
+        context?.startActivity(resultIntent)
+
         val contentPendingIntent = PendingIntent.getActivity(context, (0..2147483647).random(), contentIntent, 0)
 
         val fullScreenIntent = Intent(context, MainActivity::class.java)

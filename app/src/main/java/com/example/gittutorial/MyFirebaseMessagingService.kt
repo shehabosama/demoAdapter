@@ -21,6 +21,7 @@ class MyFirebaseMessagingService: FirebaseMessagingService() {
     // attach the notification created with custom view
     // show the notification
 
+
     fun getRemoteView(title:String , message:String):RemoteViews{
         val remoteView = RemoteViews(BuildConfig.APPLICATION_ID,R.layout.notificatoin)
         remoteView.setTextViewText(R.id.message , message)

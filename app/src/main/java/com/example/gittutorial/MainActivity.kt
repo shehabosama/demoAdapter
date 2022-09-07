@@ -12,10 +12,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.ktx.messaging
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     //lateinit var receiver: AirplaneModeChangeReceiver
@@ -24,12 +28,28 @@ class MainActivity : AppCompatActivity() {
             onGroceryClicked = ::makeToast
         )
     }
+
+    val state = MutableLiveData<String>("start")
+
     private val list:MutableList<Any> = mutableListOf()
     lateinit var recyclerView: RecyclerView
     lateinit var linearLayoutManager: LinearLayoutManager
+    lateinit var flow1: Flow<String>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         showWhenLockedAndTurnScreenOn()
 
+
+        lifecycleScope.launch {
+        flow1 =  flow<String> {
+                emit("Hello")
+            }
+        }
+        lifecycleScope.launch {
+            flow1.collect{
+                Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show()
+            }
+        }
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -62,7 +82,17 @@ class MainActivity : AppCompatActivity() {
             recyclerView.adapter = adapter
         }
 
+        lifecycleScope.launch {
+            flow1.collect{
+                state.value = it
+                Toast.makeText(this@MainActivity, state.value, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
     }
+
+
 
     // Declare the launcher at the top of your Activity/Fragment:
     private val requestPermissionLauncher = registerForActivityResult(
